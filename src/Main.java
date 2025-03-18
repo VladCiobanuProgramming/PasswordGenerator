@@ -18,12 +18,13 @@ public class Main {
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.anchor = GridBagConstraints.WEST;
 
+        // Password Length question Jlabel
         gbc.gridy++;
         panel.add(new JLabel("Password Length"),gbc);
         JSpinner startPageInput = new JSpinner(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
         panel.add(startPageInput,gbc);
 
-        // Numbers Question
+        // Numbers question JLabel
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.gridwidth = 1;
@@ -35,7 +36,7 @@ public class Main {
         JCheckBox numberCheck = new JCheckBox();
         panel.add(numberCheck, gbc);
 
-        // Uppercase Letters Question
+        // Uppercase letters question Jlabel
         gbc.gridx = 0;
         gbc.gridy = 3;
         panel.add(new JLabel("Include Uppercase letters ?"), gbc);
@@ -51,20 +52,14 @@ public class Main {
         gbc.gridy = 4;
         gbc.anchor = GridBagConstraints.EAST;
         JButton generateButton = new JButton("Generate");
+        // Generate button Action Listener
         panel.add(generateButton, gbc);
         generateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int startPageInputInt = (int) startPageInput.getValue();
-                boolean uppercaseCheckBool = false;
-                boolean numberCheckBool = false;
-               if (uppercaseCheck.isSelected()) {
-                   uppercaseCheckBool = true;
-               }
-
-               if (numberCheck.isSelected()) {
-                   numberCheckBool = true;
-               }
+                boolean uppercaseCheckSelected = uppercaseCheck.isSelected();
+                boolean numberCheckSelected = numberCheck.isSelected();
             }
         });
 

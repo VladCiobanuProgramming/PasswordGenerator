@@ -1,5 +1,6 @@
 public class GeneratePassword {
-    public static void generatePassword(int startPageInputInt) {
+    // TODO : generatePassword method with values from Main.java
+    public static void generatePassword(int startPageInputInt, boolean uppercaseCheckBool, boolean numberCheckBool) {
 
     }
 }

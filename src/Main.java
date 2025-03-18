@@ -12,7 +12,6 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
 
-        // TODO : use gridy++ and get rid of the inset bullshit
         JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -33,23 +32,21 @@ public class Main {
         // Numbers Yes/No Options
         gbc.gridx = 1;
         gbc.gridy = 2;
-        JComboBox numbersComboBox = new JComboBox<>(new String[]{"Yes", "No"});
-        panel.add(numbersComboBox, gbc);
+        JCheckBox numberCheck = new JCheckBox();
+        panel.add(numberCheck, gbc);
 
         // Uppercase Letters Question
-        // TODO : Ideally you would use a checkbox for this
         gbc.gridx = 0;
         gbc.gridy = 3;
         panel.add(new JLabel("Include Uppercase letters ?"), gbc);
 
         // Uppercase Yes/No Options
-        // TODO : Ideally you would use a checkbox for this
         gbc.gridx = 1;
         gbc.gridy = 3;
-        panel.add(new JComboBox<>(new String[]{"Yes", "No"}), gbc);
+        JCheckBox uppercaseCheck = new JCheckBox();
+        panel.add(uppercaseCheck, gbc);
 
         // Button
-        // TODO : class method as separate for button press
         gbc.gridx = 1;
         gbc.gridy = 4;
         gbc.anchor = GridBagConstraints.EAST;
@@ -59,8 +56,17 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int startPageInputInt = (int) startPageInput.getValue();
-                // TODO : figure out "yes"/"no" boolean values
-                boolean numbersComboBoxBool = (boolean) numbersComboBox.getValue();
+                boolean uppercaseCheckBool;
+                boolean numberCheckBool;
+               if (uppercaseCheck.isSelected()) {
+                   uppercaseCheckBool = true;
+               }
+               else uppercaseCheckBool = false;
+
+               if (numberCheck.isSelected()) {
+                   numberCheckBool = true;
+               }
+               else numberCheckBool = false;
             }
         });
 

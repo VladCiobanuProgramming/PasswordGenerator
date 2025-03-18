@@ -56,17 +56,15 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int startPageInputInt = (int) startPageInput.getValue();
-                boolean uppercaseCheckBool;
-                boolean numberCheckBool;
+                boolean uppercaseCheckBool = false;
+                boolean numberCheckBool = false;
                if (uppercaseCheck.isSelected()) {
                    uppercaseCheckBool = true;
                }
-               else uppercaseCheckBool = false;
 
                if (numberCheck.isSelected()) {
                    numberCheckBool = true;
                }
-               else numberCheckBool = false;
             }
         });
 

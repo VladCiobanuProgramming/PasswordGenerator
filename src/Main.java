@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -57,9 +58,23 @@ public class Main {
         generateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // declare stuff
                 int startPageInputInt = (int) startPageInput.getValue();
                 boolean uppercaseCheckSelected = uppercaseCheck.isSelected();
                 boolean numberCheckSelected = numberCheck.isSelected();
+                String generatedPassword = "";
+                Random random = new Random();
+                /* todo : maybe put stuff in a while so the password generates accordingly
+                              something like while (has numbers , is uppercase , is lowercase) idfk
+                 */
+                for (int i = 0; i < startPageInputInt; i++) {
+                    // Generate a random lowercase letter
+                    char randomLetter = (char) ('a' + random.nextInt(26));
+                    // If user wants uppercase
+                    if (uppercaseCheckSelected && random.nextInt(2) == 0) {
+                        randomLetter = Character.toUpperCase(randomLetter);
+                    }
+                }
             }
         });
 

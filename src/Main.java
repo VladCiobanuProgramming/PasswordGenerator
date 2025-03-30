@@ -67,7 +67,7 @@ public class Main {
                 boolean numberCheckSelected = numberCheck.isSelected();
                 StringBuilder generatedPassword = new StringBuilder();
                 Random random = new Random();
-
+                // generate password
                 for (int i = 0; i < startPageInputInt; i++) {
                     // Generate a random lowercase letter
                     char randomLetter = (char) ('a' + random.nextInt(26));
@@ -83,7 +83,13 @@ public class Main {
                     }
                     generatedPassword.append(randomLetter);
                 }
-                System.out.print(generatedPassword);
+                // Frame 2 to display generated password
+                JFrame frame2 = new JFrame("Password Generator (password)");
+                frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame2.setSize(400, 300);
+                // Hide main frame
+                frame.setVisible(false);
+
             }
         });
 

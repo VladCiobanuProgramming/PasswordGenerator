@@ -9,6 +9,7 @@ public class Main {
     }
 
     private static void createAndShowGUI() {
+        // Creating Inital JFrame
         JFrame frame = new JFrame("Password Generator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
@@ -53,8 +54,10 @@ public class Main {
         gbc.gridy = 4;
         gbc.anchor = GridBagConstraints.EAST;
         JButton generateButton = new JButton("Generate");
+
         // Generate button Action Listener
         panel.add(generateButton, gbc);
+
         generateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,19 +65,25 @@ public class Main {
                 int startPageInputInt = (int) startPageInput.getValue();
                 boolean uppercaseCheckSelected = uppercaseCheck.isSelected();
                 boolean numberCheckSelected = numberCheck.isSelected();
-                String generatedPassword = "";
+                StringBuilder generatedPassword = new StringBuilder();
                 Random random = new Random();
-                /* todo : maybe put stuff in a while so the password generates accordingly
-                              something like while (has numbers , is uppercase , is lowercase) idfk
-                 */
+
                 for (int i = 0; i < startPageInputInt; i++) {
                     // Generate a random lowercase letter
                     char randomLetter = (char) ('a' + random.nextInt(26));
-                    // If user wants uppercase
+                    // If user wants uppercase in password
                     if (uppercaseCheckSelected && random.nextInt(2) == 0) {
                         randomLetter = Character.toUpperCase(randomLetter);
                     }
+                    // If user wants numbers in passwords
+                    if (numberCheckSelected && random.nextInt(2) == 1) {
+                        // create Integer and turn the character into it
+                        int randomNumber = random.nextInt(10) + 48;
+                        randomLetter = (char) randomNumber;
+                    }
+                    generatedPassword.append(randomLetter);
                 }
+                System.out.print(generatedPassword);
             }
         });
 

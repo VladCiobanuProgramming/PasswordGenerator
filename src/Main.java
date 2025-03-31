@@ -87,8 +87,10 @@ public class Main {
                 JFrame frame2 = new JFrame("Password Generator (password)");
                 frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame2.setSize(400, 300);
-                // Hide main frame
-                frame.setVisible(false);
+                JLabel generatedPasswordLabel = new JLabel(String.valueOf(generatedPassword));
+                frame2.add(generatedPasswordLabel);
+
+                frame2.setVisible(true);
 
             }
         });

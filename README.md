@@ -1,2 +1,1 @@
-> Password Generator
-> WIP , future plans : password generator + manager
+Password Generator using Java Swing
